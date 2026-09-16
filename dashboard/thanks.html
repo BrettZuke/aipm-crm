@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thank you</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23030303'/%3E%3Cpath d='M9 17l4.5 4.5L23 12' stroke='%23EAB308' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap">
+<script>document.documentElement.className += " js";</script>
+
+<!--
+  ============================================================================
+  THE ONLY BLOCK YOU EDIT WHEN YOU SET THIS UP FOR A CLIENT.
+  Everything below this block is layout and never needs touching.
+  ============================================================================
+-->
+<script>
+  window.BRAND = {
+    business:     "Example Trading Ltd",
+    owner:        "Dave",
+    town:         "Harrogate",
+    phone:        "0113 555 0101",
+    email:        "hello@example-trading.example",
+
+    // Their brand colour. Everything gold on the page follows this one value.
+    accent:       "#EAB308",
+
+    // The thank-you video. Either a direct .mp4 link (R2, S3, their host) or a
+    // YouTube/Vimeo link. Leave both blank and the page shows a tidy placeholder
+    // instead of a broken player, so it is safe to put live before filming.
+    videoMp4:     "",
+    videoEmbed:   "",
+    videoPoster:  "",
+
+    // Straight to their Google review box. Get it from the business profile:
+    // Google Business Profile > Read reviews > Get more reviews > copy the link.
+    reviewUrl:    "",
+
+    // What the customer already has, no strings, for their next visit.
+    discount:     "£50 off",
+    discountCode: "THANKS50",
+
+    // The referral offer. Keep the keyword the same one that is in the CRM.
+    reward:       "£150",
+    keyword:      "BLUEJAY",
+  };
+</script>
+
+<style>
+  :root {
+    --gold: #EAB308; --gold-soft: #D4A94E; --gold-deep: #9C7B2E;
+    --ink: #1F1A15; --ink-2: #54514A; --muted: #86827A;
+    --hair: rgba(31,26,21,0.12); --hair-2: rgba(31,26,21,0.08);
+    --bg: #F1F1F1; --cream: #FAF8F1;
+    --sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16.5px; line-height: 1.62; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding-left: clamp(20px, 5vw, 52px); padding-right: clamp(20px, 5vw, 52px); }
+  .narrow { max-width: 760px; }
+  strong { font-weight: 700; color: inherit; }
+  a { color: inherit; }
+
+  /* Skimmable emphasis: one highlighted line per block, never more. */
+  .hl { background-image: linear-gradient(transparent 56%, rgba(234,179,8,0.32) 56%); padding: 0 2px; font-weight: 600; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em;
+  }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: dot 2.4s var(--ease) infinite; }
+  @keyframes dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(0.8); } }
+
+  h1, h2, h3 { font-weight: 500; letter-spacing: -0.025em; line-height: 1.02; }
+  h1 { font-size: clamp(38px, 6.4vw, 62px); }
+  h2 { font-size: clamp(28px, 4.2vw, 42px); }
+  h3 { font-size: 20px; line-height: 1.25; font-weight: 700; letter-spacing: -0.015em; }
+
+  /* ===== TOPBAR ===== */
+  .topbar {
+    position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; height: 62px; border-bottom: 1px solid rgba(255,255,255,0.10);
+  }
+  .topbar .biz { font-weight: 800; font-size: 14px; letter-spacing: -0.01em; color: #fff; }
+  .topbar .tag { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); text-align: right; }
+
+  /* ===== DARK COVER ===== */
+  .cover {
+    position: relative; overflow: hidden;
+    background: linear-gradient(180deg, #030303 0%, #1F2124 100%); color: #fff;
+    --mx: 0; --my: 0;
+  }
+  .cover .grain {
+    position: absolute; inset: 0; z-index: 1; opacity: 0.5; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+  .fx { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+  .aura { position: absolute; border-radius: 50%; filter: blur(48px); will-change: transform, translate; }
+  .aura.a1 {
+    width: 720px; height: 720px; top: -320px; right: -180px;
+    background: radial-gradient(circle, rgba(234,179,8,0.18), transparent 66%);
+    animation: pulseA 20s var(--ease) infinite alternate;
+    translate: calc(var(--mx) * 28px) calc(var(--my) * 28px);
+  }
+  .aura.a2 {
+    width: 560px; height: 560px; bottom: -260px; left: -170px;
+    background: radial-gradient(circle, rgba(255,236,190,0.08), transparent 66%);
+    animation: pulseB 26s var(--ease) infinite alternate;
+    translate: calc(var(--mx) * -18px) calc(var(--my) * -18px);
+  }
+  @keyframes pulseA { to { transform: scale(1.14); } }
+  @keyframes pulseB { to { transform: scale(1.1); } }
+  .beam { position: absolute; top: -40%; height: 180%; width: 34vw; filter: blur(36px); }
+  .beam.b1 { left: -42vw; background: linear-gradient(90deg, transparent, rgba(234,179,8,0.10), transparent); transform: rotate(15deg); animation: drift 27s linear infinite; }
+  .beam.b2 { left: -52vw; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent); transform: rotate(15deg); animation: drift 37s linear infinite; animation-delay: -14s; }
+  @keyframes drift { to { transform: rotate(15deg) translateX(150vw); } }
+
+  .cover-in { position: relative; z-index: 2; padding: clamp(44px, 7vw, 78px) 0 clamp(52px, 8vw, 88px); text-align: center; }
+  .cover .eyebrow { color: var(--gold); margin-bottom: 20px; }
+  .cover h1 { margin-bottom: 16px; }
+  .cover h1 .name { color: var(--gold); }
+  .cover .lede { max-width: 560px; margin: 0 auto; color: rgba(255,255,255,0.72); font-size: 17px; }
+
+  /* ===== VIDEO ===== */
+  .vidwrap { margin: clamp(30px, 4.5vw, 44px) auto 0; max-width: 720px; position: relative; }
+  .vidglow {
+    position: absolute; inset: -16px; border-radius: 26px; z-index: 0; pointer-events: none;
+    background: radial-gradient(60% 60% at 50% 45%, rgba(234,179,8,0.26), transparent 72%);
+    filter: blur(26px); translate: calc(var(--mx) * 12px) calc(var(--my) * 12px);
+  }
+  /* Outer tray + inner plate, so the video sits in something rather than on it. */
+  .vid {
+    position: relative; z-index: 1; padding: 6px; border-radius: 20px;
+    background: linear-gradient(140deg, rgba(234,179,8,0.55), rgba(255,255,255,0.10) 46%, rgba(234,179,8,0.30));
+    transition: transform 0.6s var(--ease);
+  }
+  .vid:hover { transform: translateY(-3px); }
+  .vid-in {
+    position: relative; border-radius: 14px; overflow: hidden; background: #0b0b0c;
+    aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.12);
+  }
+  .vid-in video, .vid-in iframe { width: 100%; height: 100%; border: 0; display: block; object-fit: cover; }
+  .vid-ph { text-align: center; padding: 24px; color: rgba(255,255,255,0.60); }
+  .vid-ph .ico { width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.22); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
+  .vid-ph .ico svg { width: 16px; height: 16px; margin-left: 2px; }
+  .vid-ph .t { font-weight: 700; color: rgba(255,255,255,0.86); font-size: 15px; letter-spacing: -0.01em; }
+  .vid-ph .s { font-size: 13px; margin-top: 4px; }
+
+  .playbtn {
+    position: absolute; inset: 0; margin: auto; width: 78px; height: 78px; border-radius: 50%;
+    border: 0; cursor: pointer; background: rgba(255,255,255,0.94); color: #111;
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.5s var(--ease), background 0.3s var(--ease);
+  }
+  .playbtn svg { width: 22px; height: 22px; margin-left: 4px; }
+  .playbtn:hover { transform: scale(1.06); background: #fff; }
+  .playbtn::after {
+    content: ""; position: absolute; inset: -10px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.45); animation: ripple 2.6s var(--ease) infinite;
+  }
+  @keyframes ripple { 0% { transform: scale(0.9); opacity: 0.8; } 100% { transform: scale(1.3); opacity: 0; } }
+
+  /* ===== BUTTONS ===== */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; position: relative; overflow: hidden;
+    font-family: var(--sans); font-size: 15px; font-weight: 700; letter-spacing: -0.01em;
+    padding: 15px 16px 15px 26px; border-radius: 999px; border: 0; cursor: pointer;
+    text-decoration: none; transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+  }
+  .btn .lbl { position: relative; z-index: 1; }
+  .btn .circ {
+    position: relative; z-index: 1; width: 30px; height: 30px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex: 0 0 auto;
+    transition: transform 0.5s var(--ease);
+  }
+  .btn .circ svg { width: 13px; height: 13px; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:hover .circ { transform: translate(3px, -1px) scale(1.06); }
+  .btn:active { transform: translateY(0) scale(0.985); }
+  /* Sheen sweeps once on hover rather than sitting there animating forever. */
+  .btn::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; transform: translateX(-120%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+    transition: transform 0.8s var(--ease);
+  }
+  .btn:hover::before { transform: translateX(120%); }
+
+  .btn.gold { background: var(--gold); color: #1a1400; box-shadow: 0 10px 26px rgba(234,179,8,0.28); }
+  .btn.gold .circ { background: rgba(0,0,0,0.14); }
+  .btn.dark { background: var(--ink); color: #fff; box-shadow: 0 10px 26px rgba(31,26,21,0.20); }
+  .btn.dark .circ { background: rgba(255,255,255,0.16); }
+  .btn.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--hair); padding-left: 24px; }
+  .btn.ghost .circ { background: rgba(31,26,21,0.07); }
+
+  /* ===== SECTIONS ===== */
+  section { padding: clamp(56px, 8vw, 96px) 0; }
+  .sec-head { margin-bottom: clamp(26px, 3.6vw, 40px); }
+  .sec-head .eyebrow { color: var(--gold-deep); margin-bottom: 14px; }
+  .sec-head p { color: var(--ink-2); margin-top: 12px; max-width: 620px; }
+
+  .card {
+    background: #fff; border-radius: 18px; padding: clamp(22px, 3vw, 32px);
+    box-shadow: 0 1px 2px rgba(31,26,21,0.05), 0 14px 34px rgba(31,26,21,0.06);
+  }
+  .card.cream { background: var(--cream); }
+
+  /* Discount: the one thing on this page that is already theirs. */
+  .perk { display: grid; grid-template-columns: 1fr auto; gap: clamp(20px, 3vw, 36px); align-items: center; }
+  .perk > * { min-width: 0; }
+  .perk h2 { margin-bottom: 10px; }
+  .perk p { color: var(--ink-2); }
+  .code {
+    display: inline-flex; flex-direction: column; align-items: center; gap: 6px;
+    padding: 20px 26px; border-radius: 14px; background: var(--ink); color: #fff; text-align: center;
+  }
+  .code .k { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); }
+  .code .v { font-size: clamp(24px, 3.4vw, 32px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .code .n { font-size: 12px; color: rgba(255,255,255,0.60); }
+
+  /* Review: asked for on its own, tied to nothing. */
+  .review { text-align: center; }
+  .stars { display: inline-flex; gap: 5px; margin-bottom: 18px; }
+  .stars svg { width: 24px; height: 24px; color: var(--gold); }
+  .review h2 { margin-bottom: 12px; }
+  .review p { color: var(--ink-2); max-width: 520px; margin: 0 auto 26px; }
+  .review .small { font-size: 13px; color: var(--muted); margin-top: 16px; }
+  /* Shown only while a piece of config is still missing. Never seen by a
+     customer on a finished page. */
+  .setup {
+    display: inline-block; font-size: 13.5px; color: var(--ink-2); font-weight: 600;
+    padding: 14px 20px; border-radius: 12px; background: rgba(31,26,21,0.04);
+    box-shadow: inset 0 0 0 1px var(--hair); border: 1px dashed rgba(31,26,21,0.22);
+  }
+
+  /* ===== REFERRAL BAND (dark contrast) ===== */
+  .band { background: #030303; color: #fff; position: relative; overflow: hidden; }
+  .band .fx { opacity: 0.7; }
+  .band-in { position: relative; z-index: 2; }
+  .band .eyebrow { color: var(--gold); margin-bottom: 14px; }
+  .band h2 { margin-bottom: 14px; }
+  .band .lede { color: rgba(255,255,255,0.70); max-width: 580px; }
+  .band .lede b { color: #fff; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: clamp(28px, 4vw, 42px) 0 0; }
+  .step {
+    background: rgba(255,255,255,0.045); border-radius: 16px; padding: 24px 22px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.09);
+    transition: transform 0.6s var(--ease), background 0.4s var(--ease);
+  }
+  .step:hover { transform: translateY(-4px); background: rgba(255,255,255,0.07); }
+  .step .n { font-size: 12px; font-weight: 800; letter-spacing: 0.16em; color: var(--gold); margin-bottom: 12px; }
+  .step h3 { color: #fff; margin-bottom: 8px; }
+  .step p { color: rgba(255,255,255,0.62); font-size: 14.5px; line-height: 1.55; }
+
+  .kwrow { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: clamp(28px, 4vw, 40px); }
+  .kw {
+    display: inline-flex; align-items: baseline; gap: 10px; padding: 13px 20px; border-radius: 12px;
+    background: rgba(234,179,8,0.12); box-shadow: inset 0 0 0 1px rgba(234,179,8,0.34);
+  }
+  .kw .k { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; color: rgba(255,255,255,0.62); }
+  .kw .v { font-size: 20px; font-weight: 800; letter-spacing: 0.06em; color: var(--gold); }
+  .fineprint { font-size: 13px; color: rgba(255,255,255,0.60); margin-top: 22px; max-width: 620px; line-height: 1.6; }
+
+  /* ===== FOOTER ===== */
+  footer { background: var(--ink); color: rgba(255,255,255,0.62); padding: 40px 0; font-size: 14px; }
+  .foot-in { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; justify-content: space-between; }
+  .foot-in .biz { color: #fff; font-weight: 800; letter-spacing: -0.01em; }
+  .foot-in a { color: rgba(255,255,255,0.62); text-decoration: none; }
+  .foot-in a:hover { color: #fff; }
+
+  /* ===== SCROLL REVEAL =====
+     Scoped to .js, which is set by an inline script in the head. If scripting is
+     off, slow or broken, nothing is ever hidden in the first place. A customer
+     must never open this to a blank page because one observer did not run. */
+  .js .rv { opacity: 0; transform: translateY(22px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+  .js .rv.in { opacity: 1; transform: none; }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 860px) {
+    .steps { grid-template-columns: 1fr; }
+    .perk { grid-template-columns: 1fr; text-align: left; }
+    .code { align-self: start; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .topbar { height: 54px; }
+    .topbar .tag { display: none; }
+    .cover-in { padding: 34px 0 44px; }
+    .playbtn { width: 62px; height: 62px; }
+    .btn { width: 100%; justify-content: space-between; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .rv { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== DARK COVER ===================== -->
+<header class="cover">
+  <div class="fx">
+    <div class="aura a1"></div><div class="aura a2"></div>
+    <div class="beam b1"></div><div class="beam b2"></div>
+  </div>
+  <div class="grain"></div>
+
+  <div class="container">
+    <div class="topbar">
+      <span class="biz" id="topBiz">Example Trading Ltd</span>
+      <span class="tag" id="topTag">A thank you</span>
+    </div>
+  </div>
+
+  <div class="container cover-in">
+    <span class="eyebrow rv"><span class="dot"></span><span id="ebrow">A message from Dave</span></span>
+    <h1 class="rv" id="headline">Thanks for choosing us.</h1>
+    <p class="lede rv" id="lede">Sixty seconds from the owner, then two things that are worth your while.</p>
+
+    <div class="vidwrap rv">
+      <div class="vidglow"></div>
+      <div class="vid"><div class="vid-in" id="vidIn">
+        <div class="vid-ph">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <div class="t">The thank-you video sits here</div>
+          <div class="s">Add the file to videoMp4 at the top of this page.</div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== THEIR DISCOUNT ===================== -->
+<!--
+  This comes before the review ask on purpose. The discount is a thank you for
+  their business and is theirs whatever they do next. Google's rules ban offering
+  anything in return for a review, so the two are never joined up on this page.
+-->
+<section>
+  <div class="container">
+    <div class="card cream perk rv">
+      <div>
+        <span class="eyebrow" style="color:var(--gold-deep);margin-bottom:12px">Already yours</span>
+        <h2 id="perkH">$50 off your next visit</h2>
+        <p id="perkP">Nothing to sign up for and nothing to print. Mention the code next time you book and it comes off the bill.</p>
+      </div>
+      <div class="code">
+        <span class="k">Just say</span>
+        <span class="v" id="perkCode">THANKS50</span>
+        <span class="n">when you book</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REVIEW ===================== -->
+<section style="padding-top:0">
+  <div class="container narrow">
+    <div class="card review rv">
+      <span class="stars" aria-hidden="true"></span>
+      <h2>Would you tell someone how it went?</h2>
+      <p id="reviewP">It takes about thirty seconds and it is the single biggest thing that helps a local business like ours get found. Good or bad, we would rather hear it.</p>
+      <a class="btn gold" id="reviewBtn" href="#" target="_blank" rel="noopener">
+        <span class="lbl">Leave a review</span>
+        <span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
+      </a>
+      <p class="small">No catch attached to this one. The discount above is yours either way.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REFERRAL ===================== -->
+<section class="band">
+  <div class="fx"><div class="aura a1"></div><div class="beam b1"></div></div>
+  <div class="container band-in">
+    <span class="eyebrow rv"><span class="dot"></span>Know someone who needs us</span>
+    <h2 class="rv" id="refH">Send someone our way, get $150.</h2>
+    <p class="lede rv" id="refP">Not a points scheme and not a voucher. <b>Real money, sent to you</b> once their job is done and paid for.</p>
+
+    <div class="steps">
+      <div class="step rv">
+        <div class="n">01</div>
+        <h3>Tell them about us</h3>
+        <p id="s1">Anyone you know who needs the kind of work we do.</p>
+      </div>
+      <div class="step rv">
+        <div class="n">02</div>
+        <h3>They give the word</h3>
+        <p id="s2">They mention your name and the word below when they get in touch. That is the whole system.</p>
+      </div>
+      <div class="step rv">
+        <div class="n">03</div>
+        <h3>You get paid</h3>
+        <p id="s3">Once their job is finished and paid for, the money comes to you.</p>
+      </div>
+    </div>
+
+    <div class="kwrow rv">
+      <span class="kw"><span class="k">The word is</span><span class="v" id="refKw">BLUEJAY</span></span>
+      <a class="btn gold" id="shareBtn" href="#">
+        <span class="lbl">Send it to someone</span>
+        <span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
+      </a>
+    </div>
+    <p class="fineprint" id="fine">
+      It has to be someone new to us, and they need to say your name and the word when they first get in touch.
+      There is a yearly cap on how much we can pay one person in cash; past that your reward comes off your own next job instead.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-in">
+    <span class="biz" id="footBiz">Example Trading Ltd</span>
+    <span id="footContact"></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var B = window.BRAND || {};
+  var $ = function (id) { return document.getElementById(id); };
+  var q = new URLSearchParams(location.search);
+
+  // The customer's first name comes in on the link from their email. Everything
+  // still reads properly when it is missing, so a link pasted by hand never
+  // shows an empty gap or the word "undefined".
+  var raw = (q.get("name") || "").trim();
+  var first = raw ? raw.split(/\s+/)[0].replace(/[^\p{L}\p{M}'\-]/gu, "").slice(0, 24) : "";
+  if (first) first = first.charAt(0).toUpperCase() + first.slice(1);
+
+  var biz = B.business || "us";
+  var text = function (id, v) { var el = $(id); if (el) el.textContent = v; };
+
+  // Brand colour drives every gold token on the page, including the ones mixed
+  // into gradients and glows, so one value rebrands the whole thing.
+  if (B.accent) {
+    var r = document.documentElement;
+    r.style.setProperty("--gold", B.accent);
+    r.style.setProperty("--gold-deep", B.accent);
+  }
+
+  document.title = "Thank you" + (B.business ? " from " + B.business : "");
+  text("topBiz", biz);
+  text("footBiz", biz);
+  text("ebrow", B.owner ? "A message from " + B.owner : "A message from the owner");
+  $("headline").innerHTML = first
+    ? 'Thanks, <span class="name">' + esc(first) + "</span>."
+    : "Thanks for choosing " + esc(biz) + ".";
+  text("lede", B.owner
+    ? "Sixty seconds from " + B.owner + ", then two things that are worth your while."
+    : "Sixty seconds from the owner, then two things that are worth your while.");
+
+  // ---- video ----------------------------------------------------------------
+  var slot = $("vidIn");
+  if (B.videoMp4) {
+    var v = document.createElement("video");
+    v.src = B.videoMp4; v.playsInline = true; v.preload = "metadata";
+    if (B.videoPoster) v.poster = B.videoPoster;
+    slot.innerHTML = "";
+    slot.appendChild(v);
+    var play = document.createElement("button");
+    play.className = "playbtn";
+    play.setAttribute("aria-label", "Play the video");
+    play.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+    slot.appendChild(play);
+    play.addEventListener("click", function () {
+      v.controls = true;
+      v.play();
+      play.remove();
+    });
+  } else if (B.videoEmbed) {
+    slot.innerHTML = '<iframe src="' + esc(B.videoEmbed) + '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="A message from the owner"></iframe>';
+  }
+
+  // ---- discount -------------------------------------------------------------
+  if (B.discount) text("perkH", B.discount + " your next visit");
+  if (B.discountCode) text("perkCode", B.discountCode);
+  else {
+    var codeBox = document.querySelector(".code");
+    if (codeBox) codeBox.style.display = "none";
+    text("perkP", "Nothing to sign up for. Mention this page next time you book and it comes off the bill.");
+  }
+
+  // ---- review ---------------------------------------------------------------
+  var star = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>';
+  document.querySelector(".stars").innerHTML = star.repeat(5);
+  var rb = $("reviewBtn");
+  if (B.reviewUrl) {
+    rb.href = B.reviewUrl;
+  } else {
+    // No link set yet. The button is replaced by a setup note rather than left
+    // pointing nowhere, because a dead CTA is worse than no CTA. The copy around
+    // it stays put, so the section still reads as designed while you build it.
+    var note = document.createElement("div");
+    note.className = "setup";
+    note.textContent = "Add reviewUrl at the top of this page and the review button appears here.";
+    rb.replaceWith(note);
+    var sm = document.querySelector(".review .small");
+    if (sm) sm.style.display = "none";
+  }
+
+  // ---- referral -------------------------------------------------------------
+  if (B.reward) {
+    text("refH", "Send someone our way, get " + B.reward + ".");
+    text("s3", "Once their job is finished and paid for, the " + B.reward + " comes to you.");
+  }
+  if (B.keyword) text("refKw", B.keyword);
+  else {
+    var kw = document.querySelector(".kw");
+    if (kw) kw.style.display = "none";
+    text("s2", "They mention your name when they get in touch. That is the whole system.");
+  }
+
+  // ---- share ----------------------------------------------------------------
+  // The customer sends their own message from their own phone. Nothing is
+  // emailed to a third party from here, which keeps this the right side of
+  // Canada's anti-spam rules.
+  var msg = "I used " + biz + " and they were good."
+    + (B.keyword ? ' Mention my name and say "' + B.keyword + '" when you get in touch.' : " Mention my name when you get in touch.");
+  var share = $("shareBtn");
+  share.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (navigator.share) {
+      navigator.share({ text: msg }).catch(function () {});
+      return;
+    }
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(msg).then(function () {
+        var lbl = share.querySelector(".lbl");
+        var was = lbl.textContent;
+        lbl.textContent = "Copied, now paste it to them";
+        setTimeout(function () { lbl.textContent = was; }, 2600);
+      });
+      return;
+    }
+    window.prompt("Copy this and send it on:", msg);
+  });
+
+  // ---- footer ---------------------------------------------------------------
+  var bits = [];
+  if (B.phone) bits.push('<a href="tel:' + esc(String(B.phone).replace(/[^0-9+]/g, "")) + '">' + esc(B.phone) + "</a>");
+  if (B.email) bits.push('<a href="mailto:' + esc(B.email) + '">' + esc(B.email) + "</a>");
+  if (B.town) bits.push(esc(B.town));
+  $("footContact").innerHTML = bits.join(" &middot; ");
+
+  // ---- motion ---------------------------------------------------------------
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add("in");
+      io.unobserve(en.target);
+    });
+  }, { threshold: 0.14, rootMargin: "0px 0px -40px" });
+  document.querySelectorAll(".rv").forEach(function (el, i) {
+    el.style.transitionDelay = (i % 4) * 70 + "ms";
+    io.observe(el);
+  });
+
+  // Cursor parallax on the cover only, and only on a real pointer. Writing to a
+  // CSS custom property keeps this off the layout path entirely.
+  var cover = document.querySelector(".cover");
+  if (window.matchMedia("(pointer: fine)").matches) {
+    var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+    cover.addEventListener("pointermove", function (e) {
+      var r = cover.getBoundingClientRect();
+      tx = (e.clientX - r.left) / r.width - 0.5;
+      ty = (e.clientY - r.top) / r.height - 0.5;
+      if (!raf) raf = requestAnimationFrame(ease);
+    });
+    cover.addEventListener("pointerleave", function () { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(ease); });
+    function ease() {
+      cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+      cover.style.setProperty("--mx", cx.toFixed(4));
+      cover.style.setProperty("--my", cy.toFixed(4));
+      raf = (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) ? requestAnimationFrame(ease) : null;
+    }
+  }
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+})();
+</script>
+</body>
+</html>
